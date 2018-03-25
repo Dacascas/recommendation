@@ -20,6 +20,6 @@ class DecoderFactory
                 return new JsonFormatDecoder();
         }
 
-        throw new \InvalidArgumentException("No decoder");
+        throw new \InvalidArgumentException('No decoder');
     }
 }

@@ -13,7 +13,10 @@ class Logger
      */
     private $applyLogger = true;
 
-    private static  $instance = null;
+    /**
+     * @var null
+     */
+    private static $instance = null;
 
     /**
      * @param bool $apply
@@ -30,15 +33,26 @@ class Logger
      */
     public static function getInstance()
     {
-        if (null === self::$instance)
-        {
+        if (null === self::$instance) {
             self::$instance = new self();
         }
+
         return self::$instance;
     }
 
-    private function __clone() {}
-    private function __construct() {}
+    /**
+     * Logger clone
+     */
+    private function __clone()
+    {
+    }
+
+    /**
+     * Logger constructor.
+     */
+    private function __construct()
+    {
+    }
 
     /**
      * @param string $message
