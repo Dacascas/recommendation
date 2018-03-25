@@ -1,0 +1,21 @@
+{
+  "name": "service/recommendation",
+  "description": "Script filter source data by input data.",
+  "require-dev": {
+    "phpunit/phpunit": "^5.3",
+    "squizlabs/php_codesniffer": "^2.6"
+  },
+  "scripts": {
+    "test-unit": "bin/phpunit --testsuite=unit",
+    "lint-src": [
+      "php -l src/",
+      "bin/phpcs --standard=psr2 --ignore=Tests src/"
+    ]
+  },
+  "config": {
+    "bin-dir": "bin",
+    "platform": {
+      "php": ">7.0.0"
+    }
+  }
+}
