@@ -1,14 +1,4 @@
 /vendor/
 /.idea/
-composer.phar
-/var/logs/*
-!/var/logs/.gitkeep
-/bin/*
-!/bin/.gitkeep
-*.pyc
-/var/coverage
-/config/config_local.php
-/pimple.json
 phpunit.xml
-cache/
-config/version
+/bin
