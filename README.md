@@ -16,4 +16,4 @@ Usage
 After you did the installation step you can use the script as you usually execute any php script.
 In project has been setted config file for two env (qa, prod) that why you can run script with next command:
 
-**ENV=qa php recommendation.php**
+**ENV=prod php recommendation.php genre=Drama time=7.00**

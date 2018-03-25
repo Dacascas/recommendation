@@ -33,8 +33,8 @@ class SearchLogicByGenreTime implements SearchLogicInterface
     public function setInputData(array $criteria): void
     {
         $this->genre = $criteria['genre'] ?? '';
-        $this->downTime = $criteria['time'] ? new \DateTime($criteria['time']) : new \DateTime();
-        $this->upTime = $criteria['time'] ?
+        $this->downTime = isset($criteria['time']) ? new \DateTime($criteria['time']) : new \DateTime();
+        $this->upTime = isset($criteria['time']) ?
             (new \DateTime($criteria['time']))->add(new \DateInterval('PT30M')) :
             new \DateTime();
     }
