@@ -3,3 +3,4 @@ phpunit.xml
 /bin
 composer.lock
 test/
+/.idea/
