@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Input;
+namespace TestTask\Input;
 
 interface InputInterface
 {

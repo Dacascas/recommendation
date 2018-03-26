@@ -1,7 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Download;
+namespace TestTask\Download;
+
+use TestTask\Logger\LoggerTrait;
 
 /**
  * Class UriDownloader
@@ -9,7 +11,7 @@ namespace Download;
  */
 class UriDownloader implements DownloaderInterface
 {
-    use \Logger\LoggerTrait;
+    use LoggerTrait;
 
     /**
      * {@inheritdoc}
@@ -17,12 +19,16 @@ class UriDownloader implements DownloaderInterface
      */
     public function download(string $source): string
     {
-        $sourceData = \file_get_contents($source);
+        try {
+            $sourceData = \file_get_contents($source);
 
-        if ($sourceData) {
-            $this->log(__CLASS__ . ' - success');
+            if ($sourceData) {
+                $this->log(__CLASS__ . ' - success');
 
-            return $sourceData;
+                return $sourceData;
+            }
+        } catch (\Throwable $e) {
+            throw new \RuntimeException('Some error occured');
         }
 
         throw new \RuntimeException('Not correct source');

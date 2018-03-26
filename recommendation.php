@@ -3,13 +3,13 @@ declare(strict_types=1);
 
 spl_autoload_register(function ($className) {
     $className = str_replace('\\', '/', $className);
-    include_once __DIR__ . '/src/' . $className . '.php';
+    include_once __DIR__ . '/src/' . str_replace('TestTask', '', $className) . '.php';
 });
 
 /** config for application in associate array */
 $config = require_once(__DIR__ . '/config/' . getenv('ENV') . '.php');
 
-$logger = \Logger\Logger::getInstance();
+$logger = TestTask\Logger\Logger::getInstance();
 $logger->setApplyLogger($config['logger']);
 
 try {
@@ -17,8 +17,8 @@ try {
 
     /** multiply source possible with schema - http and format - json of the source data */
     foreach ($config['movie_sources'] as $movie_source) {
-        $parsedData = \Decode\DecoderFactory::getDecode($movie_source['format'])->decode(
-            \Download\DownloaderFactory::getDownloader($movie_source['uri']['schema'])
+        $parsedData = TestTask\Decode\DecoderFactory::getDecode($movie_source['format'])->decode(
+            TestTask\Download\DownloaderFactory::getDownloader($movie_source['uri']['schema'])
                 ->download($movie_source['uri']['host'])
         );
 
@@ -32,15 +32,15 @@ try {
 
     /** search with particular search algorithm and particular input data parser */
     $searchResult = (new \Search\SearchManager(
-        new \Search\SearchLogicByGenreTime,
-        new \Input\InputDataCommandLine()
+        new TestTask\Search\SearchLogicByGenreTime,
+        new TestTask\Input\InputDataCommandLine()
     ))->searchByCriteria($sourceData);
 
     /** ordering mechanism */
-    $searchResult = (new \Order\OrderByRating())->order($searchResult);
+    $searchResult = (new TestTask\Order\OrderByRating())->order($searchResult);
 
     /** output mechanism */
-    (new \Output\OutputManager(new \Output\OutputCommandLineStrategy()))->showResult($searchResult);
+    (new TestTask\Output\OutputManager(new TestTask\Output\OutputCommandLineStrategy()))->showResult($searchResult);
 } catch (\Throwable $e) {
     echo $e->getMessage();
 }

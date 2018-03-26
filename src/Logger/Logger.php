@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Logger;
+namespace TestTask\Logger;
 
 /**
  * Trait LoggerTrait

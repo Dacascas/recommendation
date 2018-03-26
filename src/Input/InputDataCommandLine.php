@@ -1,14 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace Input;
+namespace TestTask\Input;
+
+use TestTask\Logger\LoggerTrait;
 
 /**
  * Class InputData
  */
 class InputDataCommandLine implements InputInterface
 {
-    use \Logger\LoggerTrait;
+    use LoggerTrait;
 
     /**
      * Method to get Input data from different source

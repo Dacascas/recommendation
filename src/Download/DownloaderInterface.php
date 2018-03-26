@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Download;
+namespace TestTask\Download;
 
 /**
  * Interface DownloadInterface

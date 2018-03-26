@@ -1,14 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace Order;
+namespace TestTask\Order;
+
+use TestTask\Logger\LoggerTrait;
 
 /**
  * Class OrderByRating
  */
 class OrderByRating implements OrderInterface
 {
-    use \Logger\LoggerTrait;
+    use LoggerTrait;
 
     /**
      * {@inheritdoc}

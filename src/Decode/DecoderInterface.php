@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Decode;
+namespace TestTask\Decode;
 
 /**
  * Interface DecoderInterface

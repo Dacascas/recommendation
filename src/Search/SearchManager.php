@@ -1,9 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Search;
+namespace TestTask\Search;
 
-use Input\InputInterface;
+use TestTask\Input\InputInterface;
+use TestTask\Search\SearchLogicInterface;
 
 /**
  * Class SearchManager

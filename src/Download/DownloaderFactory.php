@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Download;
+namespace TestTask\Download;
 
 /**
  * Class DownloaderFactory
@@ -20,6 +20,6 @@ class DownloaderFactory
                 return new UriDownloader();
         }
 
-        throw new \InvalidArgumentException("Not exist downloader type");
+        throw new \InvalidArgumentException('Not exist downloader type');
     }
 }

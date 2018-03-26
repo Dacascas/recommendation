@@ -1,14 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace Search;
+namespace TestTask\Search;
+
+use TestTask\Logger\LoggerTrait;
 
 /**
  * Class SearchLogicByGenreTime
  */
 class SearchLogicByGenreTime implements SearchLogicInterface
 {
-    use \Logger\LoggerTrait;
+    use LoggerTrait;
 
     /**
      * @var string

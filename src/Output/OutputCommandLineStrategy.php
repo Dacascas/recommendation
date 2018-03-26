@@ -1,11 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Output;
+namespace TestTask\Output;
+
+use TestTask\Logger\LoggerTrait;
 
 class OutputCommandLineStrategy implements OutputInterface
 {
-    use \Logger\LoggerTrait;
+    use LoggerTrait;
 
     /**
      * {@inheritdoc}
@@ -15,7 +17,7 @@ class OutputCommandLineStrategy implements OutputInterface
         $this->log(__CLASS__ . ' - success');
 
         foreach ($dataToShow as $showItem) {
-            printf(
+            \printf(
                 "%s showing at %s\n",
                 $showItem['name'],
                 (new \DateTime($showItem['showing']))->format('ga')

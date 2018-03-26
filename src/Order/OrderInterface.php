@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Order;
+namespace TestTask\Order;
 
 /**
  * Interface OrderInterface
