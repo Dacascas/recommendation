@@ -31,7 +31,7 @@ try {
     }
 
     /** search with particular search algorithm and particular input data parser */
-    $searchResult = (new \Search\SearchManager(
+    $searchResult = (new TestTask\Search\SearchManager(
         new TestTask\Search\SearchLogicByGenreTime,
         new TestTask\Input\InputDataCommandLine()
     ))->searchByCriteria($sourceData);
